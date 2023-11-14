@@ -1,0 +1,15 @@
+def solution(dot):
+    answer = 0
+    if dot[0] < 0 :
+        if dot[1] < 0:
+            answer = 3
+        else :
+            answer = 2
+    else :
+        if dot[1] < 0:
+            answer = 4
+        else :
+            answer = 1
+    return answer
+
+# https://school.programmers.co.kr/learn/courses/30/lessons/120841?language=python3
