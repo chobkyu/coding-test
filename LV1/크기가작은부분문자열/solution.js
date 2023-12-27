@@ -1,6 +1,5 @@
 function solution(t, p) {
     var answer = 0;
-    
     var pLeng = p.length;
     var tempp = pLeng-1;
     var arr = [...t];
@@ -24,3 +23,5 @@ function solution(t, p) {
     }
     return answer;
 }
+
+//https://school.programmers.co.kr/learn/courses/30/lessons/147355
