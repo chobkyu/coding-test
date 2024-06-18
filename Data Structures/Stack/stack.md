@@ -45,3 +45,7 @@ The operations work as follows.
 4. On popping an elementm we return the element pointed to by TOP and reduce its value.
 5. Before pushing, we check if the stack is already full.
 6. Before popping, we check if the stack is already empty.
+
+
+## References
+URL : [https://www.programiz.com/dsa/stack](https://www.programiz.com/dsa/stack)
