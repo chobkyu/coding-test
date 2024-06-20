@@ -73,3 +73,8 @@ The complexity of the enqueue and dequeue operations of a circular queue is O(1)
 - Memory management
 - Traffic Management
 
+
+
+
+## References
+URL : [https://www.programiz.com/dsa/circular-queue](https://www.programiz.com/dsa/circular-queue)
