@@ -28,12 +28,12 @@ Priority queue can be implemented using an array, a linked list, a heap data str
 A comparative analysis of different implementations of priority queue is given below
 
 <table>
-    <th>
+    <tr>
         <td>Operations</td>
         <td>peek</td>
         <td>insert</td>
         <td>delete</td>
-    </th>
+    </tr>
     <tr>
         <td>Linked List</td>
         <td>O(1)</td>
