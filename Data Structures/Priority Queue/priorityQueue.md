@@ -43,7 +43,265 @@ A comparative analysis of different implementations of priority queue is given b
      <tr>
         <td>Binary Heap</td>
         <td>O(1)</td>
-        <td>O(log n)</td>
+        <td>O(log n)</td>// export default로 Mutation 내용 내보내기
+const moduleMutation_S0101_KCD_FACTORY_EDT_KCD_FACTORY = {
+  Mutation: {
+
+    mgrInsert_S0101_KCD_FACTORY_EDT_KCD_FACTORY: async (_, args, contextValue) => {
+      // 
+
+
+      var tRetDate = getTime();
+
+      // let tPO = "POA2022S672";
+
+      var tUserInfo = AFLib.getUserInfo(contextValue);
+ 
+      var tSQL = 'select (max(substring(FACTORY_CD, 3, 3)) + 1) as max1 from KCD_FACTORY';
+      var nRet0 = await prisma.$queryRaw(Prisma.raw(tSQL));
+      var tRet1 = nRet0[0];
+      var tMaxSeq = tRet1.max1;
+
+      var retArray = [];
+      var tIdx = 0;
+      for (tIdx = 0; tIdx < args.datas.length; tIdx++) {
+        var tData = args.datas[tIdx];
+        var tObjEDT_KCD_FACTORY = { ...tData };
+
+        delete tObjEDT_KCD_FACTORY.id;
+        delete tObjEDT_KCD_FACTORY.BANK_NAME;
+        delete tObjEDT_KCD_FACTORY.ACCOUNT_NO;
+        delete tObjEDT_KCD_FACTORY.ACCOUNT_NAME;
+
+        tObjEDT_KCD_FACTORY.FACTORY_CD = 'FC' + tMaxSeq;
+        tObjEDT_KCD_FACTORY.REG_USER = tUserInfo.USER_ID;
+        tObjEDT_KCD_FACTORY.REG_DATETIME = tRetDate;
+        tObjEDT_KCD_FACTORY.UPD_USER = tUserInfo.USER_ID;
+        tObjEDT_KCD_FACTORY.UPD_DATETIME = tRetDate;
+        tObjEDT_KCD_FACTORY.STATUS_CD = '0';
+        tObjEDT_KCD_FACTORY.tag_po = 'P';
+        tObjEDT_KCD_FACTORY.tag_order = '-';
+
+        // let retInsert = await prisma.KCD_FACTORY.create({data:tObjEDT_KCD_FACTORY});
+
+
+
+      }
+
+      try {
+        let sqlStr = `
+        INSERT INTO KCD_FACTORY (FACTORY_CD, FACTORY_NAME, USER_NAME, EMAIL, TEL_NO, FAX_NO, ZIP_NO, ADDR1, ADDR2, PORT, AIRPORT, NAT_CD, BANK_CD, STATUS_CD, REG_USER, REG_DATETIME, UPD_USER, UPD_DATETIME,tag_po,tag_order)
+        VALUES (
+          '${tObjEDT_KCD_FACTORY.FACTORY_CD}',
+          '${tObjEDT_KCD_FACTORY.FACTORY_NAME}',
+          '${tObjEDT_KCD_FACTORY.USER_NAME}',
+          '${tObjEDT_KCD_FACTORY.EMAIL}',
+          '${tObjEDT_KCD_FACTORY.TEL_NO}',
+          '${tObjEDT_KCD_FACTORY.FAX_NO}',
+          '${tObjEDT_KCD_FACTORY.ZIP_NO}',
+          '${tObjEDT_KCD_FACTORY.ADDR1}',
+          '${tObjEDT_KCD_FACTORY.ADDR2}',
+          '${tObjEDT_KCD_FACTORY.PORT}',
+          '${tObjEDT_KCD_FACTORY.AIRPORT}',
+          '${tObjEDT_KCD_FACTORY.NAT_CD}',
+          '${tObjEDT_KCD_FACTORY.BANK_CD}',
+          '${tObjEDT_KCD_FACTORY.STATUS_CD}',
+          '${tObjEDT_KCD_FACTORY.REG_USER}',
+          '${tObjEDT_KCD_FACTORY.REG_DATETIME}',
+          '${tObjEDT_KCD_FACTORY.UPD_USER}',
+          '${tObjEDT_KCD_FACTORY.UPD_DATETIME}',
+          '${tObjEDT_KCD_FACTORY.tag_po}',
+          '${tObjEDT_KCD_FACTORY.tag_order}'
+        )
+      `
+        let retInsert = await prisma.$queryRaw(Prisma.raw(sqlStr));
+
+        if (typeof retInsert.id === 'undefined') {
+          var tObj = {};
+          tObj.CODE = 'ERROR';
+          tObj.id = -1;
+          retArray.push(tObj);
+        } else {
+          var tObj = {};
+          tObj.CODE = retInsert.FACTORY_CD;
+          tObj.id = retInsert.id;
+          retArray.push(tObj);
+        }
+        return (retArray);
+
+      } catch (e) {
+        console.log(e);
+        return e;
+      }
+    },
+// export default로 Mutation 내용 내보내기
+const moduleMutation_S0101_KCD_FACTORY_EDT_KCD_FACTORY = {
+  Mutation: {
+
+    mgrInsert_S0101_KCD_FACTORY_EDT_KCD_FACTORY: async (_, args, contextValue) => {
+      // 
+
+
+      var tRetDate = getTime();
+
+      // let tPO = "POA2022S672";
+
+      var tUserInfo = AFLib.getUserInfo(contextValue);
+ 
+      var tSQL = 'select (max(substring(FACTORY_CD, 3, 3)) + 1) as max1 from KCD_FACTORY';
+      var nRet0 = await prisma.$queryRaw(Prisma.raw(tSQL));
+      var tRet1 = nRet0[0];
+      var tMaxSeq = tRet1.max1;
+
+      var retArray = [];
+      var tIdx = 0;
+      for (tIdx = 0; tIdx < args.datas.length; tIdx++) {
+        var tData = args.datas[tIdx];
+        var tObjEDT_KCD_FACTORY = { ...tData };
+
+        delete tObjEDT_KCD_FACTORY.id;
+        delete tObjEDT_KCD_FACTORY.BANK_NAME;
+        delete tObjEDT_KCD_FACTORY.ACCOUNT_NO;
+        delete tObjEDT_KCD_FACTORY.ACCOUNT_NAME;
+
+        tObjEDT_KCD_FACTORY.FACTORY_CD = 'FC' + tMaxSeq;
+        tObjEDT_KCD_FACTORY.REG_USER = tUserInfo.USER_ID;
+        tObjEDT_KCD_FACTORY.REG_DATETIME = tRetDate;
+        tObjEDT_KCD_FACTORY.UPD_USER = tUserInfo.USER_ID;
+        tObjEDT_KCD_FACTORY.UPD_DATETIME = tRetDate;
+        tObjEDT_KCD_FACTORY.STATUS_CD = '0';
+        tObjEDT_KCD_FACTORY.tag_po = 'P';
+        tObjEDT_KCD_FACTORY.tag_order = '-';
+
+        // let retInsert = await prisma.KCD_FACTORY.create({data:tObjEDT_KCD_FACTORY});
+
+
+
+      }
+
+      try {
+        let sqlStr = `
+        INSERT INTO KCD_FACTORY (FACTORY_CD, FACTORY_NAME, USER_NAME, EMAIL, TEL_NO, FAX_NO, ZIP_NO, ADDR1, ADDR2, PORT, AIRPORT, NAT_CD, BANK_CD, STATUS_CD, REG_USER, REG_DATETIME, UPD_USER, UPD_DATETIME,tag_po,tag_order)
+        VALUES (
+          '${tObjEDT_KCD_FACTORY.FACTORY_CD}',
+          '${tObjEDT_KCD_FACTORY.FACTORY_NAME}',
+          '${tObjEDT_KCD_FACTORY.USER_NAME}',
+          '${tObjEDT_KCD_FACTORY.EMAIL}',
+          '${tObjEDT_KCD_FACTORY.TEL_NO}',
+          '${tObjEDT_KCD_FACTORY.FAX_NO}',
+          '${tObjEDT_KCD_FACTORY.ZIP_NO}',
+          '${tObjEDT_KCD_FACTORY.ADDR1}',
+          '${tObjEDT_KCD_FACTORY.ADDR2}',
+          '${tObjEDT_KCD_FACTORY.PORT}',
+          '${tObjEDT_KCD_FACTORY.AIRPORT}',
+          '${tObjEDT_KCD_FACTORY.NAT_CD}',
+          '${tObjEDT_KCD_FACTORY.BANK_CD}',
+          '${tObjEDT_KCD_FACTORY.STATUS_CD}',
+          '${tObjEDT_KCD_FACTORY.REG_USER}',
+          '${tObjEDT_KCD_FACTORY.REG_DATETIME}',
+          '${tObjEDT_KCD_FACTORY.UPD_USER}',
+          '${tObjEDT_KCD_FACTORY.UPD_DATETIME}',
+          '${tObjEDT_KCD_FACTORY.tag_po}',
+          '${tObjEDT_KCD_FACTORY.tag_order}'
+        )
+      `
+        let retInsert = await prisma.$queryRaw(Prisma.raw(sqlStr));
+
+        if (typeof retInsert.id === 'undefined') {
+          var tObj = {};
+          tObj.CODE = 'ERROR';
+          tObj.id = -1;
+          retArray.push(tObj);
+        } else {
+          var tObj = {};
+          tObj.CODE = retInsert.FACTORY_CD;
+          tObj.id = retInsert.id;
+          retArray.push(tObj);
+        }
+        return (retArray);
+
+      } catch (e) {
+        console.log(e);
+        return e;
+      }
+    },
+const moduleMutation_S0101_KCD_FACTORY_EDT_KCD_FACTORY = {
+  Mutation: {
+    mgrInsert_S0101_KCD_FACTORY_EDT_KCD_FACTORY: async (_, args, contextValue) => {
+      const tRetDate = getTime();
+      const tUserInfo = AFLib.getUserInfo(contextValue);
+
+      const tSQL = 'SELECT (MAX(SUBSTRING(FACTORY_CD, 3, 3)) + 1) AS max1 FROM KCD_FACTORY';
+      const nRet0 = await prisma.$queryRaw(Prisma.raw(tSQL));
+      const tMaxSeq = nRet0[0]?.max1 || 1;
+
+      const retArray = [];
+
+      for (const tData of args.datas) {
+        const tObjEDT_KCD_FACTORY = {
+          ...tData,
+          FACTORY_CD: `FC${tMaxSeq}`,
+          REG_USER: tUserInfo.USER_ID,
+          REG_DATETIME: tRetDate,
+          UPD_USER: tUserInfo.USER_ID,
+          UPD_DATETIME: tRetDate,
+          STATUS_CD: '0',
+          tag_po: 'P',
+          tag_order: '-'
+        };
+
+        delete tObjEDT_KCD_FACTORY.id;
+        delete tObjEDT_KCD_FACTORY.BANK_NAME;
+        delete tObjEDT_KCD_FACTORY.ACCOUNT_NO;
+        delete tObjEDT_KCD_FACTORY.ACCOUNT_NAME;
+
+        try {
+          const sqlStr = `
+            INSERT INTO KCD_FACTORY (
+              FACTORY_CD, FACTORY_NAME, USER_NAME, EMAIL, TEL_NO, FAX_NO, ZIP_NO, ADDR1, ADDR2, PORT, AIRPORT, NAT_CD, BANK_CD, STATUS_CD, REG_USER, REG_DATETIME, UPD_USER, UPD_DATETIME, tag_po, tag_order
+            ) VALUES (
+              '${tObjEDT_KCD_FACTORY.FACTORY_CD}',
+              '${tObjEDT_KCD_FACTORY.FACTORY_NAME}',
+              '${tObjEDT_KCD_FACTORY.USER_NAME}',
+              '${tObjEDT_KCD_FACTORY.EMAIL}',
+              '${tObjEDT_KCD_FACTORY.TEL_NO}',
+              '${tObjEDT_KCD_FACTORY.FAX_NO}',
+              '${tObjEDT_KCD_FACTORY.ZIP_NO}',
+              '${tObjEDT_KCD_FACTORY.ADDR1}',
+              '${tObjEDT_KCD_FACTORY.ADDR2}',
+              '${tObjEDT_KCD_FACTORY.PORT}',
+              '${tObjEDT_KCD_FACTORY.AIRPORT}',
+              '${tObjEDT_KCD_FACTORY.NAT_CD}',
+              '${tObjEDT_KCD_FACTORY.BANK_CD}',
+              '${tObjEDT_KCD_FACTORY.STATUS_CD}',
+              '${tObjEDT_KCD_FACTORY.REG_USER}',
+              '${tObjEDT_KCD_FACTORY.REG_DATETIME}',
+              '${tObjEDT_KCD_FACTORY.UPD_USER}',
+              '${tObjEDT_KCD_FACTORY.UPD_DATETIME}',
+              '${tObjEDT_KCD_FACTORY.tag_po}',
+              '${tObjEDT_KCD_FACTORY.tag_order}'
+            )
+          `;
+          const retInsert = await prisma.$queryRaw(Prisma.raw(sqlStr));
+
+          const tObj = {
+            CODE: retInsert?.FACTORY_CD || 'ERROR',
+            id: retInsert?.id || -1
+          };
+          retArray.push(tObj);
+        } catch (e) {
+          console.error(e);
+          return e;
+        }
+      }
+
+      return retArray;
+    }
+  }
+};
+
+export default moduleMutation_S0101_KCD_FACTORY_EDT_KCD_FACTORY;
+
         <td>O(log n)</td>
     </tr>
      <tr>
