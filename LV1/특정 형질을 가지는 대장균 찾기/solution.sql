@@ -1,0 +1,16 @@
+-- 코드를 작성해주세요
+SELECT
+    COUNT(distinct ID) AS COUNT
+FROM ECOLI_DATA
+WHERE 
+    GENOTYPE % 8 != 0
+    AND ((GENOTYPE % 8) % 4 = 1
+    OR (GENOTYPE % 8) % 4 = 0);
+
+
+-- 최적화
+SELECT
+    COUNT(DISTINCT ID) AS COUNT
+FROM ECOLI_DATA
+WHERE 
+    GENOTYPE % 8 IN (1, 4, 5);
